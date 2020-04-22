@@ -1,0 +1,15 @@
+{
+  "name": "projectChat",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:OllaWilk/projectChat.git",
+  "author": "Aleksandra Wilk <oleksandra.wilk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "nodemon": "^2.0.3"
+  }
+}
