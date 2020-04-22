@@ -54,7 +54,7 @@
     function sendMessage(e) {
         e.preventDefault();
 
-        if(!messageContentInput) {
+        if(!messageContentInput.value) {
             alert('You can not send empty message');
             return;
         } else {
