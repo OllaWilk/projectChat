@@ -25,12 +25,49 @@
             loginForm.classList.remove('show');
             messagesSection.classList.add('show');
         } else {
-            alert('Field cannot be empty');
+            alert('Field can not be empty');
             return;
         }
     }
 
+    function addMessage (author, content) {
+
+        const message = document.createElement('li');
+        message.classList.add('message', 'message--received');
+        author === userName? message.classList.add('message--self') : '';
+
+
+        const header = document.createElement('h3');
+        header.classList.add('message__author');
+        author === userName? header.innerHTML = 'You' : header.innerHTML = author
+
+
+        const div = document.createElement('div');
+        div.classList.add('message__content');
+        div.innerHTML = content;
+
+        messagesList.appendChild(message);
+        message.appendChild(header);
+        message.appendChild(div);
+    }
+
+    function sendMessage(e) {
+        e.preventDefault();
+
+        if(!messageContentInput) {
+            alert('You can not send empty message');
+            return;
+        } else {
+            addMessage(userName, messageContentInput.value);
+            messageContentInput.value='';
+        }
+    };
+
     loginForm.addEventListener('submit', e => {
-        login(e)
+        login(e);
+    })
+
+    addMessageForm.addEventListener('submit', e => {
+        sendMessage(e);
     })
 }
