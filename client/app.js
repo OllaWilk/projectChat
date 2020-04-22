@@ -16,4 +16,21 @@
     const userNameImput = document.querySelector(opts.userNameImput);
     const messageContentInput = document.querySelector(opts.messageContentInput);
     let userName = '';
+
+    function login(e) {
+        e.preventDefault();
+
+        if(userNameImput.value) {
+            userName = userNameImput.value;
+            loginForm.classList.remove('show');
+            messagesSection.classList.add('show');
+        } else {
+            alert('Field cannot be empty');
+            return;
+        }
+    }
+
+    loginForm.addEventListener('submit', e => {
+        login(e)
+    })
 }
