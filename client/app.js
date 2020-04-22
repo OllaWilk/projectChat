@@ -15,4 +15,5 @@
     const addMessageForm = document.querySelector(opts.addMessageForm);
     const userNameImput = document.querySelector(opts.userNameImput);
     const messageContentInput = document.querySelector(opts.messageContentInput);
+    const userName = '';
 }
