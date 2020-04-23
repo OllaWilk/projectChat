@@ -56,20 +56,23 @@
     function sendMessage(e) {
         e.preventDefault();
 
-        if(!messageContentInput.value) {
+        let messageContent = messageContentInput.value;
+
+        if(!messageContentInput.lenght) {
             alert('You can not send empty message');
             return;
         } else {
-            addMessage(userName, messageContentInput.value);
+            addMessage(userName, messageContent);
+            socket.emit('message', { author: userName, content: messageContent })
             messageContentInput.value='';
         }
     };
 
     loginForm.addEventListener('submit', e => {
         login(e);
-    })
+    });
 
     addMessageForm.addEventListener('submit', e => {
         sendMessage(e);
-    })
+    });
 }
