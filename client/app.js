@@ -1,5 +1,7 @@
 'use strict';
-{
+{   const socket = io();
+    socket.on('message', ({ author, content }) => addMessage(author, content));
+
     const opts = {
         loginForm: '#welcome-form',
         messagesSection: '#messages-section',
