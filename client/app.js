@@ -39,10 +39,9 @@
         message.classList.add('message', 'message--received');
         author === userName? message.classList.add('message--self') : '';
 
-
         const header = document.createElement('h3');
         header.classList.add('message__author');
-        author === userName? header.innerHTML = 'You' : header.innerHTML = author
+        author === userName? header.innerHTML = 'You' : header.innerHTML = author;
 
 
         const div = document.createElement('div');
@@ -65,7 +64,7 @@
         } else {
             addMessage(userName, messageContent);
             socket.emit('message', { author: userName, content: messageContent })
-            messageContentInput.value='';
+            messageContentInput.value = '';
         }
     };
 
