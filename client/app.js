@@ -2,6 +2,8 @@
 {
     const socket = io();
     socket.on('message', ({ author, content }) => addMessage(author, content));
+    socket.on('newUser', (user) => addMessage('Chat Bot', user + ' has joined the converstaion!'));
+    socket.on('removeUser', (user) => addMessage('Chat Bot', user + ' has left the conversation...!'));
 
     const opts = {
         loginForm: '#welcome-form',
@@ -27,6 +29,7 @@
             userName = userNameImput.value;
             loginForm.classList.remove('show');
             messagesSection.classList.add('show');
+            socket.emit('join', userName);
         } else {
             alert('Field can not be empty');
             return;
