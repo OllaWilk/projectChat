@@ -46,10 +46,11 @@
         header.classList.add('message__author');
         author === userName? header.innerHTML = 'You' : header.innerHTML = author;
 
-
         const div = document.createElement('div');
         div.classList.add('message__content');
+        author === 'Chat bot'? div.style.fontStyle = 'italic' : '';
         div.innerHTML = content;
+
 
         messagesList.appendChild(message);
         message.appendChild(header);
