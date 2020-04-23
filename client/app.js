@@ -1,5 +1,6 @@
 'use strict';
-{   const socket = io();
+{
+    const socket = io();
     socket.on('message', ({ author, content }) => addMessage(author, content));
 
     const opts = {
@@ -58,7 +59,7 @@
 
         let messageContent = messageContentInput.value;
 
-        if(!messageContentInput.lenght) {
+        if(!messageContent.length) {
             alert('You can not send empty message');
             return;
         } else {
